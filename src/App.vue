@@ -13,15 +13,15 @@
         <button :disabled="starButtonDisable" @click="gameStart"> Start</button>
         <p class="score">Your score: {{score}}</p>
         <div class="radio-button">
-          <input id="easy" type="radio" name="difficult" value="easy" v-model="difficult">
+          <input :disabled="starButtonDisable" id="easy" type="radio" name="difficult" value="easy" v-model="difficult">
           <label for="easy">Easy</label>
         </div>
         <div class="radio-button">
-          <input id="normal" type="radio" name="difficult" value="normal" v-model="difficult">
+          <input :disabled="starButtonDisable" id="normal" type="radio" name="difficult" value="normal" v-model="difficult">
           <label for="normal">Normal</label>
         </div>
         <div class="radio-button">
-          <input id="hard" type="radio" name="difficult" value="hard" v-model="difficult">
+          <input :disabled="starButtonDisable" id="hard" type="radio" name="difficult" value="hard" v-model="difficult">
           <label for="hard">Hard</label>
         </div>
         <p class="lose-message" v-if="wrongResult">You lose!</p>
@@ -57,12 +57,6 @@ export default {
         3: require('./assets/sounds/sounds_3.mp3'),
         4: require('./assets/sounds/sounds_4.mp3'),
       }
-    }
-  },
-  watch: {
-    difficult: function () {
-      this.isEnable = false
-      this.gameStart();
     }
   },
   methods: {
